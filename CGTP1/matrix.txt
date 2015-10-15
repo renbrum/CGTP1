@@ -1,0 +1,64 @@
+void initMatrix(){
+		float* temp = new float[pt * 2];		
+		pontosT = new float*[pt];		
+		for (int i = 0; i < pt; ++i)
+		{
+			pontosT[i] = (temp + i * 2);
+		}
+		
+		GLfloat* temp2 = new GLfloat[ct * 3];
+		corT = new GLfloat*[ct];
+		for (int i = 0; i < ct; ++i)
+		{
+			corT[i] = (temp + i * 3);
+		}
+
+		float* temp3 = new float[pr * 2];
+		pontosR = new float*[pr];
+		for (int i = 0; i < pr; ++i)
+		{
+			pontosR[i] = (temp + i * 2);
+		}
+
+		GLfloat* temp4 = new GLfloat[cr * 3];
+		corR = new GLfloat*[cr];
+		for (int i = 0; i < cr; ++i)
+		{
+			corR[i] = (temp + i * 3);
+		}
+		delete[] temp;
+		delete[] temp2;
+		delete[] temp3;
+		delete[] temp4;
+
+	}
+
+	void loadAux(string filePath){
+		ifstream file(filePath);
+		char ch,a;
+		ct = 0; pt = 0; cr = 0; pr = 0;
+		while (file >> ch){
+			switch (ch)
+			{
+			case 'u':
+				file >> a;
+				ct++;
+				break;
+			case 't':
+				file >> a;
+				pt++;
+				break;
+			case 'd':
+				file >> a;
+				cr++;
+				break;
+			case 'r':
+				file >> a;
+				pr++;
+				break;
+			}
+		}		
+	}
+
+void readFileVertices(string filePath, float **pontosT, GLfloat **corT, float **pontosR, GLfloat **corR){
+void desenhaGenerico(float **pontosT, GLfloat **corT, float **pontosR, GLfloat **corR){
